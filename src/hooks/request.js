@@ -69,7 +69,7 @@ export function useRequest(promiseCreator, options) {
           dispatch(requestError(error));
         });
     }
-  }, [options.skip, options.variables]);
+  }, [options.skip, options.variables, promiseCreator]);
 
   return state;
 }

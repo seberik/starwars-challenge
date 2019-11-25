@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 import PropTypes from "prop-types";
 import { APIContext } from "../../context/api";
 import { useRequest } from "../../hooks/request";
@@ -15,15 +15,11 @@ const Movies = props => {
   const { person } = props;
 
   const client = useContext(APIContext);
-  const { loading, result: movies, error } = useRequest(
-    person => client.getMovies(person),
-    {
-      skip: !person,
-      variables: person
-    }
-  );
-
-  console.log({ loading, movies, error });
+  const query = useCallback(() => client.getMovies(person), [client, person]);
+  const { loading, result: movies, error } = useRequest(query, {
+    skip: !person,
+    variables: person
+  });
 
   return (
     <div>

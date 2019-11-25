@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer, useContext, useCallback } from "react";
 import SearchForm from "../../components/SearchForm";
 import SearchResult from "../../components/SearchResult";
 import { APIContext } from "../../context/api";
@@ -37,13 +37,14 @@ function Search() {
   const client = useContext(APIContext);
   const [state, dispatch] = useReducer(reducer, defaultState);
 
-  const { loading, result, error } = useRequest(
-    query => client.searchPeople(query),
-    {
-      skip: !state.query,
-      variables: state.query
-    }
-  );
+  const query = useCallback(() => client.searchPeople(state.query), [
+    client,
+    state.query
+  ]);
+  const { loading, result, error } = useRequest(query, {
+    skip: !state.query,
+    variables: state.query
+  });
 
   function search(values) {
     dispatch({ type: "SEARCH_REQUEST", query: values.query });
