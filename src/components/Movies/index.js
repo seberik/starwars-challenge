@@ -2,6 +2,7 @@ import React, { useContext, useCallback } from "react";
 import PropTypes from "prop-types";
 import { APIContext } from "../../context/api";
 import { useRequest } from "../../hooks/request";
+import ListItem from "../ListItem";
 import loader from "../../loader.svg";
 
 const propTypes = {
@@ -25,25 +26,25 @@ const Movies = props => {
     <div>
       <h2>{person.name}</h2>
       {loading && (
-        <div className="list-item">
+        <ListItem>
           <div>
             <img src={loader} alt="" />
           </div>
-        </div>
+        </ListItem>
       )}
       {error && (
-        <div className="list-item">
+        <ListItem>
           <div>Oops... Something went wrong...</div>
-        </div>
+        </ListItem>
       )}
       {!loading && !movies && (
-        <div className="list-item" role="button" tabIndex="0">
-          <div>These are not the droids you are looking for</div>
-        </div>
+        <ListItem>
+          <div>These are not the movies you are looking for</div>
+        </ListItem>
       )}
       {movies &&
         movies.map(film => (
-          <div className="list-item">
+          <ListItem>
             <div>
               <div>
                 <div className="list-item-label">Title</div>
@@ -52,17 +53,17 @@ const Movies = props => {
             </div>
             <div>
               <div>
-                <div className="list-item-label">Opening</div>
-                <div>{film.opening_crawl.substring(0, 150)}</div>
-              </div>
-            </div>
-            <div>
-              <div>
                 <div className="list-item-label">Release</div>
                 <div>{film.release_date}</div>
               </div>
             </div>
-          </div>
+            <div style={{ flexGrow: 5 }}>
+              <div>
+                <div className="list-item-label">Opening</div>
+                <div>{film.opening_crawl.substring(0, 150)}...</div>
+              </div>
+            </div>
+          </ListItem>
         ))}
     </div>
   );

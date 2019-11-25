@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./index.css";
+import ListItem from "../ListItem";
 import loader from "../../loader.svg";
 
 const propTypes = {
@@ -25,26 +25,25 @@ function SearchResult(props) {
     <>
       <h2>Found characters</h2>
       {loading && (
-        <div className="list-item">
+        <ListItem>
           <div>
             <img src={loader} alt="" />
           </div>
-        </div>
+        </ListItem>
       )}
       {error && (
         <div className="list-item">
           <div>Oops... Something went wrong...</div>
         </div>
       )}
-      {!loading && !error && !items && (
+      {!loading && !error && !items.length && (
         <div className="list-item" role="button" tabIndex="0">
-          <div>These are not the droid you are looking for</div>
+          <div>These are not the characters you are looking for</div>
         </div>
       )}
       {items.map(item => (
-        <div
+        <ListItem
           key={item.id}
-          className="list-item"
           role="button"
           tabIndex="0"
           onClick={() => onClick(item)}
@@ -53,7 +52,7 @@ function SearchResult(props) {
             onKeyPress(e.key, item);
           }}
         >
-          <div className="list-item-name">
+          <div className="list-item-name" style={{ flexGrow: 5 }}>
             <div>
               <div className="list-item-label">Name</div>
               <div>{item.name}</div>
@@ -75,7 +74,7 @@ function SearchResult(props) {
               <div>{item.homeworld.population}</div>
             </div>
           </div>
-        </div>
+        </ListItem>
       ))}
     </>
   );

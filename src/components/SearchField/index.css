@@ -4,7 +4,7 @@
 
 .search-field .search-field-loader {
     position: absolute;
-    color: black;
+    color: #333;
     right: 0;
     padding: 13px;
     z-index: 1;
