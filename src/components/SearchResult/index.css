@@ -1,0 +1,32 @@
+.list-item-label {
+    color: #969696;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+}
+
+.list-item {
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 16px 0;
+}
+
+.list-item-meta div {
+    padding: 0 6px;
+}
+
+.list-item:hover, .list-item:focus {
+    border: 1px solid #8cc5e6fa;
+    outline: none;
+}
+
+.list-item > div {
+    padding: 16px;
+    display: flex;
+}
