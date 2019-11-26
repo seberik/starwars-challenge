@@ -48,11 +48,10 @@ function SearchResult(props) {
           tabIndex="0"
           onClick={() => onClick(item)}
           onKeyPress={e => {
-            console.log(e.key);
             onKeyPress(e.key, item);
           }}
         >
-          <div className="list-item-name" style={{ flexGrow: 5 }}>
+          <div className="list-item-name" style={{ flexGrow: 2 }}>
             <div>
               <div className="list-item-label">Name</div>
               <div>{item.name}</div>
