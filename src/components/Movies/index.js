@@ -21,7 +21,7 @@ const Movies = props => {
     skip: !person,
     variables: person
   });
-
+  
   return (
     <div>
       <h2>{person.name}</h2>
@@ -37,7 +37,7 @@ const Movies = props => {
           <div>Oops... Something went wrong...</div>
         </ListItem>
       )}
-      {!loading && !movies && (
+      {!loading && !error && !movies && (
         <ListItem>
           <div>These are not the movies you are looking for</div>
         </ListItem>

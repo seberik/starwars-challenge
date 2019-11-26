@@ -20,7 +20,12 @@ class APIClient {
   }
 
   async getMovies(person) {
-    return Promise.all(person.films.map(film => this.fetch(film)));
+    return Promise.all(person.films.map(film => this.fetch(film))).then(
+      result =>
+        result.sort((a, b) => {
+          return new Date(b.release_date) - new Date(a.release_date);
+        })
+    );
   }
 
   async searchPeople(query) {
