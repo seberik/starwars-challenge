@@ -4,11 +4,9 @@ import APIContextProvider from "./context/api";
 
 function App() {
   return (
-    <div>
-      <APIContextProvider>
-        <Search />
-      </APIContextProvider>
-    </div>
+    <APIContextProvider>
+      <Search />
+    </APIContextProvider>
   );
 }
 
