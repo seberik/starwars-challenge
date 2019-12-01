@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/starwars-challenge/static/css/main.a1bc9aee.chunk.css",
+    "main.js": "/starwars-challenge/static/js/main.b57c6bf0.chunk.js",
+    "main.js.map": "/starwars-challenge/static/js/main.b57c6bf0.chunk.js.map",
+    "runtime-main.js": "/starwars-challenge/static/js/runtime-main.59f63349.js",
+    "runtime-main.js.map": "/starwars-challenge/static/js/runtime-main.59f63349.js.map",
+    "static/js/2.d61728e6.chunk.js": "/starwars-challenge/static/js/2.d61728e6.chunk.js",
+    "static/js/2.d61728e6.chunk.js.map": "/starwars-challenge/static/js/2.d61728e6.chunk.js.map",
+    "index.html": "/starwars-challenge/index.html",
+    "precache-manifest.b97a55f6b3d78d80029684a7c61f37d6.js": "/starwars-challenge/precache-manifest.b97a55f6b3d78d80029684a7c61f37d6.js",
+    "service-worker.js": "/starwars-challenge/service-worker.js",
+    "static/css/main.a1bc9aee.chunk.css.map": "/starwars-challenge/static/css/main.a1bc9aee.chunk.css.map",
+    "static/media/loader.svg": "/starwars-challenge/static/media/loader.65421bef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.59f63349.js",
+    "static/js/2.d61728e6.chunk.js",
+    "static/css/main.a1bc9aee.chunk.css",
+    "static/js/main.b57c6bf0.chunk.js"
+  ]
+}
