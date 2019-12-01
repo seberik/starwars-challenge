@@ -3,12 +3,12 @@ import SearchField from "../SearchField";
 import { Formik, Form } from "formik";
 
 function SearchForm(props) {
-  const { onSubmit } = props;
+  const { onSubmit, loading } = props;
 
   return (
     <Formik onSubmit={onSubmit} initialValues={{ query: "" }}>
       <Form>
-        <SearchField />
+        <SearchField loading={loading} />
       </Form>
     </Formik>
   );

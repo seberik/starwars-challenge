@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 import "./index.css";
 
 const propTypes = {
@@ -7,10 +8,17 @@ const propTypes = {
 };
 
 const ListItem = props => {
-  const { children, ...attributes } = props;
+  const { children, noMargin, selected, ...attributes } = props;
 
   return (
-    <div {...attributes} className="list-item">
+    <div
+      {...attributes}
+      className={classnames(
+        "list-item",
+        noMargin && "no-margin",
+        selected && "selected"
+      )}
+    >
       {children}
     </div>
   );

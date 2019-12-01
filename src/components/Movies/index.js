@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { APIContext } from "../../context/api";
 import { useRequest } from "../../hooks/request";
 import ListItem from "../ListItem";
-import loader from "../../loader.svg";
+import ContentLoader from "../ContentLoader";
+import ErrorMessage from "../ErrorMessage";
+import "./index.css";
 
 const propTypes = {
   person: PropTypes.shape({
@@ -17,50 +19,40 @@ const Movies = props => {
 
   const client = useContext(APIContext);
   const query = useCallback(() => client.getMovies(person), [client, person]);
+
   const { loading, result: movies, error } = useRequest(query, {
     skip: !person,
     variables: person
   });
 
   return (
-    <div>
-      <h2>{person.name}</h2>
-      {loading && (
-        <ListItem>
-          <div>
-            <img src={loader} alt="" />
-          </div>
-        </ListItem>
-      )}
-      {error && (
-        <ListItem>
-          <div>Oops... Something went wrong...</div>
-        </ListItem>
-      )}
+    <div className="movie">
+      {loading && <ContentLoader />}
+      {error && <ErrorMessage>Oops... Something went wrong...</ErrorMessage>}
       {!loading && !error && !movies && (
-        <ListItem>
-          <div>These are not the movies you are looking for</div>
-        </ListItem>
+        <ErrorMessage>
+          These are not the movies you are looking for
+        </ErrorMessage>
       )}
       {movies &&
-        movies.map(film => (
-          <ListItem>
+        movies.map(movie => (
+          <ListItem key={movie.url} noMargin>
             <div>
               <div>
                 <div className="list-item-label">Title</div>
-                <div>{film.title}</div>
+                <div>{movie.title}</div>
               </div>
             </div>
             <div>
               <div>
                 <div className="list-item-label">Release</div>
-                <div>{film.release_date}</div>
+                <div>{movie.release_date}</div>
               </div>
             </div>
             <div style={{ flexGrow: 5 }}>
               <div>
                 <div className="list-item-label">Opening</div>
-                <div>{film.opening_crawl.substring(0, 150)}...</div>
+                <div>{movie.opening_crawl.substring(0, 150)}...</div>
               </div>
             </div>
           </ListItem>

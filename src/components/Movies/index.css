@@ -1,0 +1,20 @@
+.movie {
+    width: 100%;
+    margin: 0 0 16px 0;
+    box-sizing: border-box;
+    border-left: 7px solid #eee;
+}
+
+.movie .list-item:nth-child(even) {
+    background: #eee;
+}
+
+@media (max-width: 768px) {
+    .movie .list-item {
+        flex-direction: column;
+    }
+
+    .movie .list-item > div {
+        margin: 0 0 8px 0;
+    }
+}
