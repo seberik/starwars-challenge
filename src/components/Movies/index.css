@@ -6,7 +6,7 @@
 }
 
 .movie .list-item:nth-child(even) {
-    background: #eee;
+    background: #f7f7f7;
 }
 
 @media (max-width: 768px) {
