@@ -1,0 +1,21 @@
+.button {
+    background: #21ba45;
+    color: #fff;
+    padding: .78571429em 1.5em .78571429em;
+    border: none;
+    border-radius: .28571429rem;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 0 0 0 rgba(34,36,38,.15) inset;
+}
+
+.button img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.button .invisible {
+    visibility: hidden;
+}
